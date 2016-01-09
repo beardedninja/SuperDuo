@@ -1,0 +1,12 @@
+/Users/alex/Udacity/alexandria/app/build/intermediates/classes/debug
+/Users/alex/Udacity/alexandria/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-46c159acbd12f0873bd9274bbcd61bfc84110925.jar
+/Users/alex/Udacity/alexandria/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-d5718105c5001e3640b786e35ba10007ecdf0941.jar
+/Users/alex/Udacity/alexandria/app/build/intermediates/pre-dexed/debug/classes-74e5a81803eb000e16e9aafbb9b02963e9818c17.jar
+/Users/alex/Udacity/alexandria/app/build/intermediates/pre-dexed/debug/classes-3fffc92d5ba69f1e0f148b2ac80ebe1232230d0e.jar
+/Users/alex/Udacity/alexandria/app/build/intermediates/pre-dexed/debug/classes-ba78d575b76cd6a92ca830a1d22c0c350a61840c.jar
+/Users/alex/Udacity/alexandria/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-2aa3d90314fefba909197cddcbc095ae98aac18a.jar
+/Users/alex/Udacity/alexandria/app/build/intermediates/pre-dexed/debug/classes-4c1b83cf9c6793997358bb08914f087dfe95de7f.jar
+/Users/alex/Udacity/alexandria/app/build/intermediates/pre-dexed/debug/classes-4c7cbc0499354e9f2e6b406167cf24a49c9dd680.jar
+/Users/alex/Udacity/alexandria/app/build/intermediates/pre-dexed/debug/classes-8a40e1c82f8e74f51e0f976f0a50aceceb810044.jar
+/Users/alex/Udacity/alexandria/app/build/intermediates/pre-dexed/debug/classes-e9b830ba2cb2378d5964c175aca1c7f0ab68c51f.jar
+/Users/alex/Udacity/alexandria/app/build/intermediates/pre-dexed/debug/classes-e9c6ebd789042dd2d13c85dde9203137ceec0c54.jar
