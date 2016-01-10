@@ -1,5 +1,6 @@
 package barqsoft.footballscores;
 
+import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -12,15 +13,16 @@ import android.widget.RemoteViews;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
+import barqsoft.footballscores.service.myFetchService;
+
 /**
  * Implementation of App Widget functionality.
  */
 public class AppWidget extends AppWidgetProvider {
+    private static int REFRESH_PERIOD = 60000;
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
-
-        Log.d("WIDGET", "updatingwidget");
         RemoteViews views;
 
         String[] selectionArgsDate = new String[1];
@@ -46,8 +48,6 @@ public class AppWidget extends AppWidgetProvider {
             int homeScore = cursor.getInt(cursor.getColumnIndex(DatabaseContract.scores_table.HOME_GOALS_COL));
             int awayScore = cursor.getInt(cursor.getColumnIndex(DatabaseContract.scores_table.AWAY_GOALS_COL));
 
-            Log.d("Widget", "Latest Match: " + homeTeam + " " + homeScore + " - " + awayScore + " " + awayTeam);
-
             cursor.close();
 
             views = new RemoteViews(context.getPackageName(), R.layout.app_widget);
@@ -70,23 +70,27 @@ public class AppWidget extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
-        Log.d("WIDGET", "onUpdate");
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
     }
 
+    private PendingIntent createServiceIntent(Context context) {
+        Intent service_start = new Intent(context, myFetchService.class);
+        return PendingIntent.getService(context, 0, service_start, 0);
+    }
+
     @Override
     public void onEnabled(Context context) {
-        Log.d("WIDGET", "onEnabled");
-
-        // Enter relevant functionality for when the first widget is created
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), REFRESH_PERIOD, createServiceIntent(context));
     }
 
     @Override
     public void onDisabled(Context context) {
-        Log.d("WIDGET", "onDisabled");
-        // Enter relevant functionality for when the last widget is disabled
+        super.onDisabled(context);
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.cancel(createServiceIntent(context));
     }
 }
 
