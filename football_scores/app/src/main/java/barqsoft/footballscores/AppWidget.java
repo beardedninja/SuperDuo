@@ -19,7 +19,7 @@ import barqsoft.footballscores.service.myFetchService;
  * Implementation of App Widget functionality.
  */
 public class AppWidget extends AppWidgetProvider {
-    private static int REFRESH_PERIOD = 60000;
+    private static int REFRESH_PERIOD = 45 * 60000;
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
