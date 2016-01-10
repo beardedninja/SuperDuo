@@ -1,21 +1,62 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#09C"
-    android:padding="@dimen/widget_margin">
+    android:background="#fff"
+    android:padding="@dimen/widget_margin"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/appwidget_text"
+        android:id="@+id/appwidget_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green01"
+        android:contentDescription="@string/app_name"
+        android:text="@string/app_name"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:padding="8dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+    <TextView
+        android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="8dp"
-        android:background="#09C"
-        android:contentDescription="@string/appwidget_text"
-        android:text="@string/appwidget_text"
-        android:textColor="#ffffff"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold"
+        android:text="0 - 0"
+        android:textColor="#000"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_centerInParent="true" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/home_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Manchester United"
+        android:textColor="#000"
+        android:layout_toLeftOf="@id/score"
+        android:layout_toStartOf="@id/score"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/away_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Arsenal"
+        android:textColor="#000"
+        android:layout_toRightOf="@id/score"
+        android:layout_toEndOf="@id/score"
+        android:layout_centerVertical="true" />
+    </RelativeLayout>
+</LinearLayout>
