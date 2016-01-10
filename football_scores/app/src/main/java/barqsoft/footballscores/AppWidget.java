@@ -30,8 +30,6 @@ public class AppWidget extends AppWidgetProvider {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         selectionArgsDate[0] = format.format(today);
 
-        Log.d("Widget", "Checking number of matches on " + format.format(today));
-
         // query the content provider for today matches
         Cursor cursor = context.getContentResolver().query(
                 DatabaseContract.scores_table.buildScoreWithDateAndScore(),
