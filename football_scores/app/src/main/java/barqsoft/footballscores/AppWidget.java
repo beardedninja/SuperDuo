@@ -30,7 +30,9 @@ public class AppWidget extends AppWidgetProvider {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         selectionArgsDate[0] = format.format(today);
 
-        // query the content provider for today matches
+        /*  Fetch all matches that are in progress or finished from today, display the latest
+            (sorted by kick off time). */
+
         Cursor cursor = context.getContentResolver().query(
                 DatabaseContract.scores_table.buildScoreWithDateAndScore(),
                 null,
