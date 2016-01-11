@@ -7,13 +7,14 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.util.Log;
+import android.os.Build;
 import android.widget.RemoteViews;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 
 import barqsoft.footballscores.service.myFetchService;
+import static barqsoft.footballscores.DatabaseContract.scores_table.*;
 
 /**
  * Implementation of App Widget functionality.
@@ -43,10 +44,10 @@ public class AppWidget extends AppWidgetProvider {
         if (cursor != null && cursor.getCount() > 0) {
             cursor.moveToFirst();
 
-            String homeTeam = cursor.getString(cursor.getColumnIndex(DatabaseContract.scores_table.HOME_COL));
-            String awayTeam = cursor.getString(cursor.getColumnIndex(DatabaseContract.scores_table.AWAY_COL));
-            int homeScore = cursor.getInt(cursor.getColumnIndex(DatabaseContract.scores_table.HOME_GOALS_COL));
-            int awayScore = cursor.getInt(cursor.getColumnIndex(DatabaseContract.scores_table.AWAY_GOALS_COL));
+            String homeTeam = cursor.getString(cursor.getColumnIndex(HOME_COL));
+            String awayTeam = cursor.getString(cursor.getColumnIndex(AWAY_COL));
+            int homeScore = cursor.getInt(cursor.getColumnIndex(HOME_GOALS_COL));
+            int awayScore = cursor.getInt(cursor.getColumnIndex(AWAY_GOALS_COL));
 
             cursor.close();
 
@@ -55,6 +56,17 @@ public class AppWidget extends AppWidgetProvider {
             views.setTextViewText(R.id.away_name, awayTeam);
             String score = String.format(context.getString(R.string.score_text), homeScore, awayScore);
             views.setTextViewText(R.id.score, score);
+
+
+            if (Build.VERSION.SDK_INT > 14) {
+                String matchText = String.format(
+                        context.getString(R.string.score_summary_full),
+                        homeTeam, awayTeam,
+                        homeScore, awayScore
+                );
+
+                views.setContentDescription(R.id.appwidget, matchText);
+            }
         } else {
             views = new RemoteViews(context.getPackageName(), R.layout.app_widget_empty);
         }
