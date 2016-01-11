@@ -23,7 +23,9 @@
         android:layout_height="0dp"
         android:layout_weight="1.0"
         android:paddingLeft="8dp"
-        android:paddingRight="8dp">
+        android:paddingRight="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
 
         <TextView
             android:id="@+id/score"
@@ -34,6 +36,8 @@
             android:textColor="#000"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:layout_centerInParent="true" />
     </RelativeLayout>
 </LinearLayout>
