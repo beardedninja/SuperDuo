@@ -56,8 +56,26 @@ public class scoresAdapter extends CursorAdapter
                 cursor.getString(COL_AWAY)
         ));
 
-        mHolder.home_crest.setContentDescription(cursor.getString(COL_HOME));
-        mHolder.away_crest.setContentDescription(cursor.getString(COL_AWAY));
+        mHolder.home_crest.setContentDescription(
+                String.format(context.getString(R.string.crest_text), cursor.getString(COL_HOME))
+        );
+        mHolder.away_crest.setContentDescription(
+                String.format(context.getString(R.string.crest_text), cursor.getString(COL_AWAY))
+        );
+
+        String matchText;
+
+        if (cursor.getInt(COL_HOME_GOALS) > -1) {
+            String format = context.getString(R.string.score_summary_full);
+            matchText = String.format(format, cursor.getString(COL_HOME), cursor.getString(COL_AWAY),
+                    cursor.getInt(COL_HOME_GOALS), cursor.getInt(COL_AWAY_GOALS));
+        } else {
+            String format = context.getString(R.string.score_summary_unplayed);
+            matchText = String.format(format, cursor.getString(COL_HOME), cursor.getString(COL_AWAY));
+        }
+
+        view.setContentDescription(matchText);
+
 
         //Log.v(FetchScoreTask.LOG_TAG,mHolder.home_name.getText() + " Vs. " + mHolder.away_name.getText() +" id " + String.valueOf(mHolder.match_id));
         //Log.v(FetchScoreTask.LOG_TAG,String.valueOf(detail_match_id));

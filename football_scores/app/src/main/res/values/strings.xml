@@ -37,4 +37,7 @@
     <string name="add_widget">Add widget</string>
     <string name="score_text">%1$s - %2$s</string>
     <string name="no_current_matches">No matches to show</string>
+    <string name="crest_text">%1$s crest</string>
+    <string name="score_summary_full">%1$s versus %2$s, the result is %3$s, %4$s</string>
+    <string name="score_summary_unplayed">%1$s versus %2$s, the match hasn't played yet</string>
 </resources>
