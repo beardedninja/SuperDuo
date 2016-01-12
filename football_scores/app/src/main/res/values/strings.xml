@@ -46,4 +46,14 @@
 
     <string name="empty_score" translatable="false"> - </string>
 
+    <string name="arsenal" translatable="false">Arsenal London FC</string>
+    <string name="man_utd" translatable="false">Manchester United FC</string>
+    <string name="swansea" translatable="false">Swansea City</string>
+    <string name="leicester" translatable="false">Leicester City</string>
+    <string name="everton" translatable="false">Everton FC</string>
+    <string name="west_ham" translatable="false">West Ham United FC</string>
+    <string name="spurs" translatable="false">Tottenham Hotspur FC</string>
+    <string name="west_brom" translatable="false">West Bromwich Albion</string>
+    <string name="sunderland" translatable="false">Sunderland AFC</string>
+    <string name="stoke" translatable="false">Stoke City FC</string>
 </resources>
